@@ -47,4 +47,12 @@ public class GameController {
 		return "redirect:../gamelist";
 	}
 	
+	@RequestMapping(value = "/edit/{id}")
+	public String editGame(@PathVariable("id") Long gameId, Model model) {
+		model.addAttribute("game", repository.findOne(gameId));
+		model.addAttribute("modes", mRepository.findAll());
+		model.addAttribute("genres", gRepository.findAll());
+		return "editgame";
+	}
+	
 }

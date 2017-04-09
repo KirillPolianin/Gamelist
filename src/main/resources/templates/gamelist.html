@@ -23,8 +23,10 @@
  			<td th:text="${game.mode.name}"></td>
  			<td th:text="${game.rating} + '/10'"></td>
  			<td><a th:href="@{/delete/{id}(id=${game.id})}">Delete</a></td>	
+ 			<td><a th:href="@{/edit/{id}(id=${game.id})}">Edit</a></td>
+ 			
     	</tr>
      </table>
-     <a href="/add">Add Book</a>
+     <a href="/add">Add Game</a>
 </body>
 </html>
