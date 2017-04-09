@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gamelist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Add game to Gamelist</h1>
+	<div>
+		<form th:object="${game}" th:action="@{save}" action="#" method="post">
+			<label for="title">Title</label>
+			<input type="text" th:field="*{title}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="year">Year</label>
+			<input type="text" th:field="*{year}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="publisher">Publisher</label>
+			<input type="text" th:field="*{publisher}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="genre">Genre</label>
+			<input type="text" th:field="*{genre}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="mode">Mode</label>
+			<input type="text" th:field="*{mode}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="rating">Rating</label>
+			<input type="text" th:field="*{rating}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="submit" value="Save"></input>
+		</form>
+	</div>
+</body>
+</html>
