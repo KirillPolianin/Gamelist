@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Game {
@@ -21,24 +23,26 @@ public class Game {
 	@Column(name = "publisher")
 	private String publisher;
 	
-	@Column(name = "genre")
-	private String genre;
+	@ManyToOne
+	@JoinColumn(name = "genreId")
+	private Genre genre;
 	
-	@Column(name = "mode")
-	private String mode;
+	@ManyToOne
+	@JoinColumn(name = "modeId")
+	private Mode mode;
 	
 	@Column(name = "rating")
 	private int rating;
 	
 	public Game() {}
 	
-	public Game(String title, int year, String publisher, String genre, String mode, int rating) {
+	public Game(String title, int year, String publisher, Genre genre, Mode mode, int rating) {
 		super();
 		this.setTitle(title);
 		this.setYear(year);
 		this.setPublisher(publisher);
-		this.setGenre(genre);
-		this.setMode(mode);
+		this.genre = genre;
+		this.mode = mode;
 		this.setRating(rating);
 	}
 	
@@ -74,19 +78,19 @@ public class Game {
 		this.publisher = publisher;
 	}
 
-	public String getGenre() {
+	public Genre getGenre() {
 		return genre;
 	}
 
-	public void setGenre(String genre) {
+	public void setGenre(Genre genre) {
 		this.genre = genre;
 	}
 
-	public String getMode() {
+	public Mode getMode() {
 		return mode;
 	}
 
-	public void setMode(String mode) {
+	public void setMode(Mode mode) {
 		this.mode = mode;
 	}
 
@@ -97,10 +101,16 @@ public class Game {
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Game [id =" + id + ", title=" + title + ", year=" + year + ", publisher=" + publisher + ", genre=" + genre + ", mode=" + mode + ", rating=" + rating + "]";
+		if (this.mode != null & this.genre != null)
+			return "Game [id=" + id + ", title=" + title + ", year=" + year
+					+ ", publisher=" + publisher + ", genre=" + genre + ", mode="
+					+ mode + ", rating=" + rating + "]";
+		else
+			return "Game [id=" + id + ", title=" + title + ", year=" + year
+					+ ", publisher=" + publisher + ", rating=" + rating + "]";
 	}
 	
 }

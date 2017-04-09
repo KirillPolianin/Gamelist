@@ -15,6 +15,10 @@ import fi.haagahelia.course.domain.*;
 public class GameController {
 	@Autowired
 	private GameRepository repository;
+	@Autowired
+	private ModeRepository mRepository;
+	@Autowired
+	private GenreRepository gRepository;
 	
 	@RequestMapping(value = "/gamelist", method = RequestMethod.GET)
 	public String hello(Model model) {
@@ -26,6 +30,8 @@ public class GameController {
 	@RequestMapping(value = "/add")
 	public String addGame(Model model) {
 		model.addAttribute("game", new Game());
+		model.addAttribute("modes", mRepository.findAll());
+		model.addAttribute("genres", gRepository.findAll());
 		return "addgame";
 	}
 	

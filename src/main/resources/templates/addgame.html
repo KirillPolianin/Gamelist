@@ -18,13 +18,33 @@
 			<input type="text" th:field="*{publisher}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<label for="genre">Genre</label>
-			<input type="text" th:field="*{genre}" />
+			<select th:field="*{genre}">
+				<option th:each="genre: ${genres}"
+						th:value="${genre.genreId}"
+						th:text="${genre.name}"></option>
+			</select>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<label for="mode">Mode</label>
-			<input type="text" th:field="*{mode}" />
+			<select th:field="*{mode}">
+				<option th:each="mode: ${modes}"
+						th:value="${mode.modeId}"
+						th:text="${mode.name}"></option>
+			</select>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<label for="rating">Rating</label>
-			<input type="text" th:field="*{rating}" />
+			<select th:field="*{rating}">
+    			<option value="0">0</option>
+    			<option value="1">1</option>
+    			<option value="2">2</option>
+    			<option value="3">3</option>
+    			<option value="4">4</option>
+    			<option value="5">5</option>
+    			<option value="6">6</option>
+    			<option value="7">7</option>
+    			<option value="8">8</option>
+    			<option value="9">9</option>
+    			<option value="10">10</option>
+  			</select>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<input type="submit" value="Save"></input>
 		</form>
