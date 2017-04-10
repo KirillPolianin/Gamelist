@@ -21,6 +21,12 @@ public class GameController {
 	@Autowired
 	private GenreRepository gRepository;
 	
+	//Show login page
+	@RequestMapping(value="/login")
+	public String login() {	
+		return "login";
+	}
+	
 	//Show all games
 	@RequestMapping(value = "/gamelist", method = RequestMethod.GET)
 	public String showGames(Model model) {

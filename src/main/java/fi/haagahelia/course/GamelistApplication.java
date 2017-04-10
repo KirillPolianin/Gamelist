@@ -18,7 +18,7 @@ public class GamelistApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner demo(GameRepository repository, ModeRepository mRepository, GenreRepository gRepository) {
+	public CommandLineRunner demo(GameRepository repository, ModeRepository mRepository, GenreRepository gRepository, UserRepository uRepository) {
 		return (args) -> {
 				log.info("save a couple of games");
 				mRepository.save(new Mode("Single-player"));
@@ -39,6 +39,12 @@ public class GamelistApplication {
 				
 				repository.save(new Game("The Witcher 3: Wild Hunt", 2015, "CD Projekt", gRepository.findByName("Action role-playing").get(0), mRepository.findByName("Single-player").get(0), 10));
 				repository.save(new Game("Mafia III", 2016, "2K Games", gRepository.findByName("Action-adventure").get(0), mRepository.findByName("Single-player").get(0), 8));
+				
+				//Create users: admin/admin user/user
+				User user1 = new User("user", "$2a$04$0PlVXAirwljrXF25dNrtOei8DAxHstJ1EC1zMPogDiWy0QfJboW2a", "USER");
+				User user2 = new User("admin", "$2a$04$ocb9ABQ1MkyUTyGKBcGev.BcL1J1yAsPqIzHXe5FN8Ce9L2bravf6", "ADMIN");
+				uRepository.save(user1);
+				uRepository.save(user2);
 				
 				log.info("fetch all games");
 				for(Game game : repository.findAll()) {
