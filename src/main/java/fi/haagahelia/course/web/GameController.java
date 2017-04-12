@@ -28,7 +28,7 @@ public class GameController {
 	}
 	
 	//Show all games
-	@RequestMapping(value = "/gamelist", method = RequestMethod.GET)
+	@RequestMapping(value = {"", "/", "/index", "/gamelist"}, method = RequestMethod.GET)
 	public String showGames(Model model) {
 		List<Game> games = (List<Game>) repository.findAll();
 		model.addAttribute("games", games);
