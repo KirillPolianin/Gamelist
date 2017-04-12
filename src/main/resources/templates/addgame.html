@@ -3,35 +3,36 @@
 <head>
     <title>Gamelist</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
 	<h1>Add game to the list</h1>
 	<div>
 		<form th:object="${game}" th:action="@{save}" action="#" method="post">
-			<label for="title">Title</label>
+			<label for="title" class="sr-only">Title</label>
 			<input type="text" th:field="*{title}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<label for="year">Year</label>
+			<label for="year" class="sr-only">Year</label>
 			<input type="text" th:field="*{year}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<label for="publisher">Publisher</label>
+			<label for="publisher" class="sr-only">Publisher</label>
 			<input type="text" th:field="*{publisher}" />
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<label for="genre">Genre</label>
+			<label for="genre" class="sr-only">Genre</label>
 			<select th:field="*{genre}">
 				<option th:each="genre: ${genres}"
 						th:value="${genre.genreId}"
 						th:text="${genre.name}"></option>
 			</select>
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<label for="mode">Mode</label>
+			<label for="mode" class="sr-only">Mode</label>
 			<select th:field="*{mode}">
 				<option th:each="mode: ${modes}"
 						th:value="${mode.modeId}"
 						th:text="${mode.name}"></option>
 			</select>
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<label for="rating">Rating</label>
+			<label for="rating" class="sr-only">Rating</label>
 			<select th:field="*{rating}">
     			<option value="0">0</option>
     			<option value="1">1</option>
@@ -46,7 +47,7 @@
     			<option value="10">10</option>
   			</select>
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<input type="submit" value="Save"></input>
+			<input type="submit" value="Save" class="btn btn-success"></input>
 		</form>
 	</div>
 </body>
