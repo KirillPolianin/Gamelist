@@ -3,52 +3,61 @@
 <head>
     <title>Gamelist</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{../css/bootstrap.min.css}" />
 </head>
 <body>
-	<h1>Edit game record</h1>
+	<div class="col-md-4">
+	<div style="margin-left:20px">
+		<h1>Edit game record</h1>
+	</div>
 	<div>
 		<form th:object="${game}" th:action="@{../save}" action="#" method="post">
 			<input type="hidden" th:field="*{id}" class="form-control" />
+			<div class="form-group">
 			<label for="title">Title</label>
-			<input type="text" th:field="*{title}" />
-			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" class="form-control" th:field="*{title}" />
+			</div>
+			<div class="form-group">
 			<label for="year">Year</label>
-			<input type="text" th:field="*{year}" />
-			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" class="form-control" th:field="*{year}" />
+			</div>
+			<div class="form-group">
 			<label for="publisher">Publisher</label>
-			<input type="text" th:field="*{publisher}" />
-			<div style="clear: both; display: block; height: 10px;"></div>
+			<input type="text" class="form-control" th:field="*{publisher}" />
+			</div>
+			<div class="form-group">
 			<label for="genre">Genre</label>
-			<select th:field="*{genre}">
+			<select class="form-control" th:field="*{genre}">
 				<option th:each="genre: ${genres}"
 						th:value="${genre.genreId}"
 						th:text="${genre.name}"></option>
 			</select>
-			<div style="clear: both; display: block; height: 10px;"></div>
+			</div>
+			<div class="form-group">
 			<label for="mode">Mode</label>
-			<select th:field="*{mode}">
+			<select class="form-control" th:field="*{mode}">
 				<option th:each="mode: ${modes}"
 						th:value="${mode.modeId}"
 						th:text="${mode.name}"></option>
 			</select>
-			<div style="clear: both; display: block; height: 10px;"></div>
+			</div>
+			<div class="form-group">
 			<label for="rating">Rating</label>
-			<select th:field="*{rating}">
-    			<option value="0">0</option>
-    			<option value="1">1</option>
-    			<option value="2">2</option>
-    			<option value="3">3</option>
-    			<option value="4">4</option>
-    			<option value="5">5</option>
-    			<option value="6">6</option>
-    			<option value="7">7</option>
-    			<option value="8">8</option>
-    			<option value="9">9</option>
-    			<option value="10">10</option>
-  			</select>
+			<label for="rating" class="radio-inline"><input type="radio" value="1" th:field="*{rating}" />1</label>
+			<label for="rating" class="radio-inline"><input type="radio" value="2" th:field="*{rating}" />2</label>
+			<label for="rating" class="radio-inline"><input type="radio" value="3" th:field="*{rating}" />3</label>
+			<label for="rating" class="radio-inline"><input type="radio" value="4" th:field="*{rating}" />4</label>
+			<label for="rating" class="radio-inline"><input type="radio" value="5" th:field="*{rating}" />5</label>
+			<label for="rating" class="radio-inline"><input type="radio" value="6" th:field="*{rating}" />6</label>
+			<label for="rating" class="radio-inline"><input type="radio" value="7" th:field="*{rating}" />7</label>
+			<label for="rating" class="radio-inline"><input type="radio" value="8" th:field="*{rating}" />8</label>
+			<label for="rating" class="radio-inline"><input type="radio" value="9" th:field="*{rating}" />9</label>
+			<label for="rating" class="radio-inline"><input type="radio" value="10" th:field="*{rating}" />10</label>
+  			</div>
 			<div style="clear: both; display: block; height: 10px;"></div>
-			<input type="submit" value="Save"></input>
+			<input type="submit" class="btn btn-success" style="margin-left:20px" value="Save"></input>
 		</form>
+	</div>
 	</div>
 </body>
 </html>

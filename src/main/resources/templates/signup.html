@@ -6,22 +6,24 @@
 	<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
 </head>
 <body>
+	<div class="col-md-4">
 	<h1>Sign Up</h1>
 		<form th:object="${signupform}" th:action="@{/saveuser}" action="#" method="post">
-			<div>
-				<label> Username :<input type="text" th:field="*{username}" class="form-control"/></label>
-				<p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>	
+			<div class="form-group">
+				<label> Username :<input type="text" th:field="*{username}" class="form-control" placeholder="Username"/></label>
+				<p th:if="${#fields.hasErrors('username')}" class="alert alert-danger" th:errors="*{username}">Username Error</p>	
 			</div>
-			<div>
-				<label> Password :<input type="password" th:field="*{password}" class="form-control"/></label>
-				<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>	
+			<div class="form-group">
+				<label> Password :<input type="password" th:field="*{password}" class="form-control" placeholder="Password"/></label>
+				<p th:if="${#fields.hasErrors('password')}" class="alert alert-danger" th:errors="*{password}">Password Error</p>	
 			</div>
-			<div>
-				<label> Re-type Password: <input type="password" th:field="*{passwordCheck}" class="form-control"/></label>
-				<p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Password Match Error</p>	
+			<div class="form-group">
+				<label> Re-type Password: <input type="password" th:field="*{passwordCheck}" class="form-control" placeholder="Password"/></label>
+				<p th:if="${#fields.hasErrors('passwordCheck')}" class="alert alert-danger" th:errors="*{passwordCheck}">Password Match Error</p>	
 			</div>
 			
-			<input type="submit" value="Signup"></input>		
+			<input type="submit" class="btn btn-success" value="Signup"></input>		
 		</form>
+		</div>
 </body>
 </html>
