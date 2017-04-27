@@ -53,6 +53,10 @@
 			<label for="rating" class="radio-inline"><input type="radio" value="9" th:field="*{rating}" />9</label>
 			<label for="rating" class="radio-inline"><input type="radio" value="10" th:field="*{rating}" />10</label>
   			</div>
+  			<div class="form-group">
+			<label for="description">Description or Comment</label>
+			<textarea class="form-control" placeholder="Enter text here..." rows="3" th:field="*{description}"></textarea>
+			</div>
 			<div style="clear: both; display: block; height: 10px;"></div>
 			<input type="submit" class="btn btn-success" style="margin-left:20px" value="Save"></input>
 		</form>

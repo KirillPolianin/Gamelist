@@ -39,7 +39,7 @@ public class GameRepositoryTest {
 	
 	@Test
 	public void createNewGame() {
-		Game game = new Game("Grand Theft Auto V", 2013, "Rockstar Games", gRepository.findByName("Action-adventure").get(0), mRepository.findByName("Single-player & Multiplayer").get(0), 10);
+		Game game = new Game("Grand Theft Auto V", 2013, "Rockstar Games", gRepository.findByName("Action-adventure").get(0), mRepository.findByName("Single-player & Multiplayer").get(0), 10, "Really good game!");
 		repository.save(game);
 		
 		assertThat(game.getId()).isNotNull();

@@ -38,9 +38,12 @@ public class Game {
 	@Column(name = "rating")
 	private int rating;
 	
+	@Column(name = "description")
+	private String description;
+	
 	public Game() {}
 	
-	public Game(String title, int year, String publisher, Genre genre, Mode mode, int rating) {
+	public Game(String title, int year, String publisher, Genre genre, Mode mode, int rating, String description) {
 		super();
 		this.setTitle(title);
 		this.setYear(year);
@@ -48,6 +51,7 @@ public class Game {
 		this.genre = genre;
 		this.mode = mode;
 		this.setRating(rating);
+		this.setDescription(description);
 	}
 	
 	public long getId() {
@@ -105,16 +109,24 @@ public class Game {
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	@Override
 	public String toString() {
 		if (this.mode != null & this.genre != null)
 			return "Game [id=" + id + ", title=" + title + ", year=" + year
 					+ ", publisher=" + publisher + ", genre=" + genre + ", mode="
-					+ mode + ", rating=" + rating + "]";
+					+ mode + ", rating=" + rating + ", description=" + description +"]";
 		else
 			return "Game [id=" + id + ", title=" + title + ", year=" + year
-					+ ", publisher=" + publisher + ", rating=" + rating + "]";
+					+ ", publisher=" + publisher + ", rating=" + rating + ", description=" + description +"]";
 	}
 	
 }

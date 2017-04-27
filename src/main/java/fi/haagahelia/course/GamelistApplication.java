@@ -37,8 +37,8 @@ public class GamelistApplication {
 				gRepository.save(new Genre("Vehicle simulation"));
 				gRepository.save(new Genre("Other"));
 				
-				repository.save(new Game("The Witcher 3: Wild Hunt", 2015, "CD Projekt", gRepository.findByName("Action role-playing").get(0), mRepository.findByName("Single-player").get(0), 10));
-				repository.save(new Game("Mafia III", 2016, "2K Games", gRepository.findByName("Action-adventure").get(0), mRepository.findByName("Single-player").get(0), 8));
+				repository.save(new Game("The Witcher 3: Wild Hunt", 2015, "CD Projekt", gRepository.findByName("Action role-playing").get(0), mRepository.findByName("Single-player").get(0), 10, "The Witcher® 3: Wild Hunt is a story-driven, next-generation open world role-playing game, set in a visually stunning fantasy universe, full of meaningful choices and impactful consequences."));
+				repository.save(new Game("Mafia III", 2016, "2K Games", gRepository.findByName("Action-adventure").get(0), mRepository.findByName("Single-player").get(0), 8, "Mafia III is an action-adventure game played in a third-person perspective, in which players assume control of Lincoln Clay, a Vietnam War veteran on a quest to seek revenge for his adopted family, who are murdered by local mobs."));
 				
 				//Create users: admin/admin user/user
 				User user1 = new User("user", "$2a$04$0PlVXAirwljrXF25dNrtOei8DAxHstJ1EC1zMPogDiWy0QfJboW2a", "USER");
